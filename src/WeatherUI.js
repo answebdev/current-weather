@@ -32,7 +32,8 @@ function WeatherUI(props) {
             </span>
             {/* Use Regex and replace to strip the seconds from that string: */}
             <span>
-              As of {new Date().toLocaleTimeString().replace(/:\d+ /, ' ')}
+              &nbsp;(as of&nbsp;
+              {new Date().toLocaleTimeString().replace(/:\d+ /, ' ')})
             </span>
             <h1>{Math.floor(data.main.temp - 273.15)}&deg;C</h1>
             <button onClick={celFahr}>&deg;F</button>
@@ -62,54 +63,11 @@ function WeatherUI(props) {
                     </span>
                   </td>
                 </tr>
-                {/* <tr>
-                  <td>
-                    <h4>Humidity</h4>
-                  </td>
-                  <td>
-                    <span>{data.main.humidity} %</span>
-                  </td>
-                </tr> */}
-                {/* <tr>
-                  <td>
-                    <h4>Pressure</h4>
-                  </td>
-                  <td>
-                    <span>{data.main.pressure} hPa</span>
-                  </td>
-                </tr> */}
-                {/* <tr>
-                  <td>
-                    <h4>Visibility</h4>
-                  </td>
-                  <td>
-                    <span>{data.visibility / 1000} Km</span>
-                  </td>
-                </tr> */}
               </table>
             </div>
 
             <div>
               <table>
-                {/* <tr>
-                  <td>
-                    <h4>Wind</h4>
-                  </td>
-                  <td>
-                    <span>{Math.floor((data.wind.speed * 18) / 5)} km/hr</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h4>Wind Direction</h4>
-                  </td>
-                  <td>
-                    <span>
-                      {data.wind.deg}
-                      <sup>o</sup> deg
-                    </span>
-                  </td>
-                </tr> */}
                 <tr>
                   <td>
                     <h4>Sunrise</h4>

@@ -83,7 +83,7 @@ const App = () => {
 
   return (
     <div>
-      <span>Weather</span>
+      <h1>Current Weather</h1>
       <br />
       <form>
         <input
@@ -92,7 +92,7 @@ const App = () => {
           name='city'
           onChange={(e) => handleChange(e)}
         />
-        &nbsp; &nbsp; &nbsp;&nbsp;
+        &nbsp;&nbsp;
         <input
           type='text'
           placeholder='Country'
