@@ -9,18 +9,21 @@ function WeatherUI(props) {
     `${data.cod !== 404 ? data.weather[0].icon : null}` +
     '.png';
 
-  const [fahr, setFahr] = useState('');
-  const [cel, setCel] = useState('');
+  // const [fahr, setFahr] = useState('');
+  // const [cel, setCel] = useState('');
 
-  const celFahr = () => {
-    setFahr(Math.floor((data.main.temp - 273.15) * 9) / 5 + 32 + '°F');
-    setCel('');
-  };
+  // Toggle Button
+  const [on, setOn] = useState(true);
 
-  const fahrCel = () => {
-    setCel(Math.floor(data.main.temp - 273.15) + '°C');
-    setFahr('');
-  };
+  // const celFahr = () => {
+  //   setFahr(Math.floor((data.main.temp - 273.15) * 9) / 5 + 32 + '°F');
+  //   setCel('');
+  // };
+
+  // const fahrCel = () => {
+  //   setCel(Math.floor(data.main.temp - 273.15) + '°C');
+  //   setFahr('');
+  // };
 
   return (
     <div>
@@ -35,11 +38,22 @@ function WeatherUI(props) {
               &nbsp;(as of&nbsp;
               {new Date().toLocaleTimeString().replace(/:\d+ /, ' ')})
             </span>
-            <h1>{Math.floor(data.main.temp - 273.15)}&deg;C</h1>
-            <button onClick={celFahr}>&deg;F</button>
-            <button onClick={fahrCel}>&deg;C</button>
-            <span>{fahr}</span>
-            <span>{cel}</span>
+
+            {/* <h1>{Math.floor(data.main.temp - 273.15)}&deg;C</h1> */}
+
+            <h1>
+              {on
+                ? Math.floor(data.main.temp - 273.15) + '° C'
+                : Math.floor((data.main.temp - 273.15) * 9) / 5 + 32 + '° F'}
+            </h1>
+
+            {/* <button onClick={celFahr}>&deg;F</button>
+            <button onClick={fahrCel}>&deg;C</button> */}
+
+            <button onClick={() => setOn(!on)}>{on ? '°F' : '°C'}</button>
+
+            {/* <span>{fahr}</span>
+            <span>{cel}</span> */}
 
             <span style={{ textTransform: 'capitalize' }}>
               {data.weather[0].main}
